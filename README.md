@@ -18,7 +18,7 @@ This project is a simple Flask API that interacts with a MongoDB database. It in
 
 2. **Install Docker and Docker Compose::**
    - Make sure Docker is installed on your machine. You can download it from Docker's official website.
-   * Install Docker Compose if not already installed. Instructions can be found here.
+   * Install Docker Compose if not already installed. Instructions can be found [here](https://docs.docker.com/engine/install/).
 
 ## Environment Variables
 Create a .env file in the root of the project directory with the following content:
