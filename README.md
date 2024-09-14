@@ -22,16 +22,24 @@ This project is a simple Flask API that interacts with a MongoDB database. It in
 
 ## Environment Variables
 Create a .env file in the root of the project directory with the following content:
+   ```bash
+   cp .env.example .env
+   ```
 
    ```bash
    AZURE_CONNECTION_URI=your_azure_connection_string
    DB_NAME=your_database
    COLLECTION_ID=your_collection
+   USERNAME=username
+   PASSWORD=password
+   ...
+
    ```
 
 - `AZURE_CONNECTION_URI`: The URI for connecting to the MongoDB container.
 * `DB_NAME`: The name of your MongoDB database.
 + `COLLECTION_ID`: The name of your MongoDB collection.
+- `USERNAME` & `PASSWORD`: Information to login to get access token
 
 ## Running the Application
 
@@ -42,27 +50,40 @@ Create a .env file in the root of the project directory with the following conte
 2. **Build and run the containers:**
    In the project root directory, run the following command:
    ```bash
-   docker-compose up --build
+   docker-compose build --no-cache
+   docker-compose up
    ```
 
    This command will:
    - Build the Docker image for the Flask API.
-   * Start the MongoDB container and the Flask API container.
+   * Start the Flask API container.
 
 3. **Access the API:**
    Once the containers are up, open your browser or API client and navigate to:
    ```bash
-   http://127.0.0.1:5000/documents
+   http://127.0.0.1:5000/api/v1/login
    ```
-   This will show the endpoint for retrieving all documents. Replace documents with other endpoints as needed.
+   Log in to get tokens to access other endpoints in the system. Replace login with other endpoints as needed.
+   * Login infomation:
+   ```bash
+      {
+         "username": "phuc",
+         "password": "phucnv"
+      }
+   ```
+   - Note: Add the following environment variables to the `.env` file
+   ```
+   USERNAME=phuc
+   PASSWORD='$2b$12$z/OxfOfYiPC3tpepm0LpAO3IBDWRjPhmXp/1OBPIkniVlEtj5dnVe'
+   ```
 
 ## API Endpoints
-
-- GET `/documents`: Retrieve all documents from the collection.
-* GET `/documents/<id>`: Retrieve a specific document by its ObjectId.
-+ POST `/documents`: Create a new document in the collection. Provide JSON data in the request body.
-- PUT `/documents/<id>`: Update an existing document by its ObjectId. Provide JSON data in the request body.
-+ DELETE `/documents/<id>`: Delete a document by its ObjectId.
+- POST `/api/v1/login`: Get access_token to call other endpoints
+- GET `/api/v1/documents`: Retrieve all documents from the collection.
+* GET `/api/v1/documents/<id>`: Retrieve a specific document by its ObjectId.
++ POST `/api/v1/documents`: Create a new document in the collection. Provide JSON data in the request body.
+- PUT `/api/v1/documents/<id>`: Update an existing document by its ObjectId. Provide JSON data in the request body.
++ DELETE `/api/v1/documents/<id>`: Delete a document by its ObjectId.
 
 ## Error Handling
 
