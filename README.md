@@ -59,23 +59,29 @@ Create a .env file in the root of the project directory with the following conte
    * Start the Flask API container.
 
 3. **Access the API:**
-   Once the containers are up, open your browser or API client and navigate to:
+   Using Postman to access API endpoint:
+   ##### Login API infomation:
+   - `POST`: http://127.0.0.1:5000/api/v1/login
    ```bash
-   http://127.0.0.1:5000/api/v1/login
+   {
+      “username”: “phuc”,
+      “password”: “phucnv”
+   }
    ```
-   Log in to get tokens to access other endpoints in the system. Replace login with other endpoints as needed.
-   * Login infomation:
-   ```bash
-      {
-         "username": "phuc",
-         "password": "phucnv"
-      }
-   ```
-   - Note: Add the following environment variables to the `.env` file
-   ```
-   USERNAME_ENV=phuc
-   PASSWORD_ENV='$2b$12$z/OxfOfYiPC3tpepm0LpAO3IBDWRjPhmXp/1OBPIkniVlEtj5dnVe'
-   ```
+      Log in to get tokens to access other endpoints in the system. Replace login with other endpoints as needed.
+
+
+   ##### Ex: API to get all documents in Azure Cosmos DB:
+   - `GET`: http://127.0.0.1:5000/api/v1/documents
+   
+      Add access token to Bearer token in Authorization (access token from Login API)
+
+   > [!NOTE]:
+   > Add the following environment variables to the `.env` file
+   > ```
+   > USERNAME_ENV=phuc
+   > PASSWORD_ENV='$2b$12$z/OxfOfYiPC3tpepm0LpAO3IBDWRjPhmXp/1OBPIkniVlEtj5dnVe'
+   > ```
 
 ## API Endpoints
 - POST `/api/v1/login`: Get access_token to call other endpoints
