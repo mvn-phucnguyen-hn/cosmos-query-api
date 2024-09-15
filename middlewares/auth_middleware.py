@@ -11,8 +11,8 @@ from common.utils import create_response, encode_auth_token, decode_auth_token, 
 logging.basicConfig(level=logging.INFO)
 
 secret_key = os.getenv('SECRET_KEY')
-username_env = os.getenv('USERNAME')
-password_env = os.getenv('PASSWORD')
+username_env = os.getenv('USERNAME_ENV')
+password_env = os.getenv('PASSWORD_ENV')
 # Ensure expiry_days is an integer
 expiry_days = int(os.getenv('EXPIRY_DAYS_DEFAULT', 1))  
 

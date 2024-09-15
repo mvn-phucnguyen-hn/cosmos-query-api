@@ -30,8 +30,8 @@ Create a .env file in the root of the project directory with the following conte
    AZURE_CONNECTION_URI=your_azure_connection_string
    DB_NAME=your_database
    COLLECTION_ID=your_collection
-   USERNAME=username
-   PASSWORD=password
+   USERNAME_ENV=username
+   PASSWORD_ENV=password
    ...
 
    ```
@@ -39,7 +39,7 @@ Create a .env file in the root of the project directory with the following conte
 - `AZURE_CONNECTION_URI`: The URI for connecting to the MongoDB container.
 * `DB_NAME`: The name of your MongoDB database.
 + `COLLECTION_ID`: The name of your MongoDB collection.
-- `USERNAME` & `PASSWORD`: Information to login to get access token
+- `USERNAME_ENV` & `PASSWORD_ENV`: Information to login to get access token
 
 ## Running the Application
 
@@ -73,8 +73,8 @@ Create a .env file in the root of the project directory with the following conte
    ```
    - Note: Add the following environment variables to the `.env` file
    ```
-   USERNAME=phuc
-   PASSWORD='$2b$12$z/OxfOfYiPC3tpepm0LpAO3IBDWRjPhmXp/1OBPIkniVlEtj5dnVe'
+   USERNAME_ENV=phuc
+   PASSWORD_ENV='$2b$12$z/OxfOfYiPC3tpepm0LpAO3IBDWRjPhmXp/1OBPIkniVlEtj5dnVe'
    ```
 
 ## API Endpoints
